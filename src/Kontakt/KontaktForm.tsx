@@ -24,12 +24,12 @@ export const KontaktForm = (): JSX.Element => {
     validate: {
       name: hasLength(
         { min: 2, max: 18 },
-        'Name muss zwischen 2 und 18 Zeichen lang sein'
+        'Ihr Name muss zwischen 2 und 18 Zeichen lang sein'
       ),
       email: isEmail('Ungültige Email-Adresse'),
       message: hasLength(
         { min: 10 },
-        'Nachricht muss mindestens 10 Zeichen lang sein'
+        'Ihre Nachricht muss mindestens 10 Zeichen lang sein'
       ),
     },
   });
