@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { KontaktSeite } from './pages/KontaktSeite';
 import { LandungsSeite } from './pages/LandungsSeite';
+import '@fontsource/russo-one';
+import '@fontsource/open-sans';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -22,6 +24,15 @@ export default function App() {
     <MantineProvider
       theme={{
         primaryColor: 'lime',
+        headings: {
+          fontFamily: '"Open Sans", bold;',
+
+          // properties for individual headings, all of them are optional
+          sizes: {
+            h1: { fontWeight: 600, fontSize: '3rem', lineHeight: 1.2 },
+            h2: { fontWeight: 500, fontSize: '2rem', lineHeight: 1 },
+          },
+        },
       }}
       withGlobalStyles
       withNormalizeCSS

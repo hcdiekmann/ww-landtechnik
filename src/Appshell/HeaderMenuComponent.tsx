@@ -45,6 +45,15 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  logo: {
+    width: 400,
+    height: 85,
+    [theme.fn.smallerThan('sm')]: {
+      width: 200,
+      height: 'auto',
+    },
+  },
+
   link: {
     display: 'block',
     lineHeight: 1,
@@ -170,7 +179,7 @@ export function HeaderMenu({ Logo, links = [] }: HeaderProps) {
         <div className={classes.inner}>
           <Flex align='center'>
             <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
-              <img src={Logo} alt={'Loading'} width={400} height={85} />
+              <img src={Logo} alt={'Loading'} className={classes.logo} />
             </Link>
           </Flex>
           <Group spacing={5} className={classes.links}>
