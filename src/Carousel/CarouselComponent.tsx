@@ -180,7 +180,7 @@ export const CarouselComponent = (): JSX.Element => {
       loop
       withIndicators
       slidesToScroll={mobile ? 1 : 2}
-      plugins={[autoplay.current]}
+      // plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
     >
