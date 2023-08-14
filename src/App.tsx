@@ -1,5 +1,20 @@
 import { MantineProvider } from '@mantine/core';
 import { KontaktForm } from './Kontakt/KontaktForm';
+import { Notifications } from '@mantine/notifications';
+import { Analytics } from '@vercel/analytics/react';
+import { useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
@@ -10,7 +25,14 @@ export default function App() {
       withGlobalStyles
       withNormalizeCSS
     >
-      <KontaktForm />
+      <Analytics />
+      <Notifications />
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path='/kontakt' element={<KontaktForm />} />
+        </Routes>
+      </Router>
     </MantineProvider>
   );
 }
