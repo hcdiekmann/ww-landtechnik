@@ -17,7 +17,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   header: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgb(255, 255, 255)',
     borderBottom: 0,
     // position: 'static',
   },

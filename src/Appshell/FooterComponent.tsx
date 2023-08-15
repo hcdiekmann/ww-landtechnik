@@ -1,16 +1,11 @@
-import { createStyles, Group, ActionIcon, rem, Flex } from '@mantine/core';
-import {
-  IconBrandWhatsapp,
-  IconBrandFacebook,
-  IconBrandInstagram,
-} from '@tabler/icons-react';
+import { createStyles, rem, Flex } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: rem(80),
+    marginTop: rem(20),
     borderTop: `${rem(1)} solid ${theme.colors.gray[2]}`,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgb(255, 255, 255)',
   },
 
   inner: {
@@ -32,20 +27,15 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.gray[6],
     fontSize: theme.fontSizes.sm,
   },
-  FacebookIcon: {
-    '&:hover': {
-      color: theme.colors.blue[6],
-    },
+
+  section: {
+    fontWeight: 'bold',
+    marginTop: theme.spacing.xs,
   },
-  WhatsappIcon: {
-    '&:hover': {
-      color: theme.colors.green[6],
-    },
-  },
-  InstaIcon: {
-    '&:hover': {
-      color: theme.colors.orange[6],
-    },
+
+  contactInfo: {
+    fontSize: theme.fontSizes.sm,
+    lineHeight: 1.5,
   },
 }));
 
@@ -66,50 +56,28 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <Flex align='center'>
+        <Flex align='center' mb={5}>
           <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
             <img src={Logo} alt={'Loading'} height={32} width={150} />
           </Link>
         </Flex>
+        <div className={classes.contactInfo}>
+          <div className={classes.section}>W&W Fahrzeugteile GbR</div>
+          <div>
+            <div>Bakkenkamp 1</div>
+            <div>48480 Lünne</div>
 
-        <Group className={classes.links}>{items}</Group>
+            <div>Philipp Wilmes</div>
+            <div>Lennard Wibbeling</div>
+          </div>
+          <div>
+            <div>TEL. 017660400853</div>
+          </div>
+        </div>
 
-        <Group spacing='xs' position='right' noWrap>
-          <a href='https://www.facebook.com/' target='_blank' rel='noreferrer'>
-            <ActionIcon
-              size='lg'
-              variant='default'
-              radius='xl'
-              className={classes.FacebookIcon}
-            >
-              <IconBrandFacebook size='1.05rem' stroke={1.5} />
-            </ActionIcon>
-          </a>
-          <a
-            href='https://api.whatsapp.com/send?phone='
-            target='_blank'
-            rel='noreferrer'
-          >
-            <ActionIcon
-              size='lg'
-              variant='default'
-              radius='xl'
-              className={classes.WhatsappIcon}
-            >
-              <IconBrandWhatsapp size='1.05rem' stroke={1.5} />
-            </ActionIcon>
-          </a>
-          <a href='https://www.instagram.com/' target='_blank' rel='noreferrer'>
-            <ActionIcon
-              size='lg'
-              variant='default'
-              radius='xl'
-              className={classes.InstaIcon}
-            >
-              <IconBrandInstagram size='1.05rem' stroke={1.5} />
-            </ActionIcon>
-          </a>
-        </Group>
+        <Flex align='center' direction='row' gap='xs' className={classes.links}>
+          {items}
+        </Flex>
       </div>
     </div>
   );

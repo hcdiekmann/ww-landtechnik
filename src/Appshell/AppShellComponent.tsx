@@ -7,25 +7,25 @@ interface AppShellProps {
 }
 
 export const AppShellComponent = (props: AppShellProps) => {
-  const links = [
+  const menu_links = [
     {
       link: '/unternehmen',
       label: 'Unternehmen',
     },
     {
-      link: '/leistungen',
+      link: '/#',
       label: 'Unsere Leistungen',
       links: [
         {
-          link: '/leistungen/restaurationen',
+          link: '/restaurationen',
           label: 'Restaurationen',
         },
         {
-          link: '/leistungen/reparaturen',
-          label: 'Repaturen und Aufarbeitungen',
+          link: '/reparaturen',
+          label: 'Reparaturen & Aufarbeitungen',
         },
         {
-          link: '/leistungen/ersatzteile',
+          link: '/ersatzteile',
           label: 'Beschaffung & Herstellung von Ersatzteilen',
         },
       ],
@@ -36,10 +36,31 @@ export const AppShellComponent = (props: AppShellProps) => {
     },
   ];
 
+  const footer_links = [
+    {
+      link: '/unternehmen',
+      label: 'Unternehmen',
+    },
+    {
+      link: '/impressum',
+      label: 'Impressum',
+    },
+    {
+      link: '/datenschutz',
+      label: 'Datenschutz',
+    },
+    {
+      link: '/kontakt',
+      label: 'Kontakt',
+    },
+  ];
+
   return (
     <AppShell
-      header={<HeaderMenu Logo={'/pictures/logo.png'} links={links} />}
-      footer={<FooterCentered Logo={'/pictures/logo.png'} links={links} />}
+      header={<HeaderMenu Logo={'/pictures/logo.png'} links={menu_links} />}
+      footer={
+        <FooterCentered Logo={'/pictures/logo.png'} links={footer_links} />
+      }
     >
       {props.children}
     </AppShell>
