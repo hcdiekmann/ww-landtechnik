@@ -1,4 +1,4 @@
-import { Container, Title, Text, Divider } from '@mantine/core';
+import { Container, Title, Text, Divider, Space } from '@mantine/core';
 import { AppShellComponent } from '../Appshell/AppShellComponent';
 import { IconQuote } from '@tabler/icons-react';
 
@@ -18,9 +18,13 @@ export const UnternehemenSeite = (): JSX.Element => {
           Landmaschinenhandel sowie im Ersatzteilhandel tätig und fertigen
           Ersatzteile an. Unsere Leidenschaft und unser Fachwissen für das
           Original treiben uns stets dazu an, uns weiterzuentwickeln und unsere
-          Dienstleistungen zu verbessern. Wir sind ein junges, lernfähiges Team,
-          das jede Herausforderung annimmt und kontinuierlich an seinen Aufgaben
-          wächst. Immer nach dem Motto:
+          Dienstleistungen zu verbessern.
+        </Text>
+        <Space h={10}></Space>
+        <Text>
+          Wir sind ein junges, lernfähiges Team, das jede Herausforderung
+          annimmt und kontinuierlich an seinen Aufgaben wächst. Immer nach dem
+          Motto:
         </Text>
         <div
           style={{
