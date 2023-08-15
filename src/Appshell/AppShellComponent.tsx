@@ -22,7 +22,7 @@ export const AppShellComponent = (props: AppShellProps) => {
         },
         {
           link: '/reparaturen',
-          label: 'Repaturen und Aufarbeitungen',
+          label: 'Reparaturen & Aufarbeitungen',
         },
         {
           link: '/ersatzteile',
