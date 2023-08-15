@@ -8,6 +8,7 @@ import { KontaktSeite } from './pages/KontaktSeite';
 import { LandungsSeite } from './pages/LandungsSeite';
 import '@fontsource/russo-one';
 import '@fontsource/open-sans';
+import { UnternehemenSeite } from './pages/UnternehmenSeite';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<LandungsSeite />} />
+          <Route path='/unternehmen' element={<UnternehemenSeite />} />
           <Route path='/kontakt' element={<KontaktSeite />} />
         </Routes>
       </Router>
