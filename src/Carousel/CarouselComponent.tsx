@@ -94,18 +94,17 @@ const data = [
   {
     image: '/pictures/900Restauration/1.jpg',
     title: 'Für den Werterhalt und die Zuverlässigkeit ihres Fahrzeuges',
-    category: 'Reparaturen & Aufbereitungen',
+    category: 'Reparaturen & Aufarbeitungen',
   },
   {
     image: '/pictures/700Restauration/1.jpg',
-    title:
-      'Beschaffung und Herstellung von neuen originalgetreuen Ersatzteilen',
-    category: 'Ersatzteile',
+    title: 'Wenn das passende erstmal hermuss',
+    category: 'Restaurationen',
   },
   {
     image: '/pictures/KabinenRestauration/1.jpg',
-    title: 'Wenn das passende erstmal hermuss',
-    category: 'Restaurationen',
+    title: 'Beschaffung und Herstellung von originalgetreuen Ersatzteilen',
+    category: 'Ersatzteile',
   },
 ];
 
@@ -117,13 +116,13 @@ function Card({ image, title, category }: CardProps) {
 
     switch (category) {
       case 'Restaurationen':
-        pageToNavigate = '/leistungen/restaurationen';
+        pageToNavigate = '/restaurationen';
         break;
       case 'Ersatzteile':
-        pageToNavigate = '/leistungen/ersatzteile';
+        pageToNavigate = '/ersatzteile';
         break;
-      case 'Reparaturen & Aufbereitungen':
-        pageToNavigate = '/leistungen/reparaturen';
+      case 'Reparaturen & Aufarbeitungen':
+        pageToNavigate = '/reparaturen';
         break;
       // Add more cases as needed
       default:
