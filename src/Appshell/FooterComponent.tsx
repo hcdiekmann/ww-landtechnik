@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: rem(20),
+    marginTop: rem(5),
     borderTop: `${rem(1)} solid ${theme.colors.gray[2]}`,
     backgroundColor: 'rgb(255, 255, 255)',
   },
