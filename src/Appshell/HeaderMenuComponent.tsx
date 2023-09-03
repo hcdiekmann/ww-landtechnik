@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   activeLink: {
-    backgroundColor: theme.colors.green[2],
+    backgroundColor: theme.colors.lime[3],
   },
 
   links: {
@@ -46,8 +46,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    width: 400,
-    height: 85,
+    width: 380,
+    height: 'auto',
     [theme.fn.smallerThan('sm')]: {
       width: 200,
       height: 'auto',
@@ -65,7 +65,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: theme.colors.green[1],
+      backgroundColor: theme.colors.lime[2],
     },
   },
 
