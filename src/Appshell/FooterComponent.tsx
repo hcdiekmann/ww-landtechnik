@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: rem(5),
+    marginTop: rem(10),
     borderTop: `${rem(1)} solid ${theme.colors.gray[2]}`,
     backgroundColor: 'rgb(255, 255, 255)',
   },
@@ -26,11 +26,6 @@ const useStyles = createStyles((theme) => ({
     },
     color: theme.colors.gray[6],
     fontSize: theme.fontSizes.sm,
-  },
-
-  section: {
-    fontWeight: 'bold',
-    marginTop: theme.spacing.xs,
   },
 
   contactInfo: {
@@ -61,23 +56,15 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
             <img src={Logo} alt={'Loading'} height={32} width={150} />
           </Link>
         </Flex>
-        <div className={classes.contactInfo}>
-          <div className={classes.section}>W&W Fahrzeugteile GbR</div>
-          <div>
-            <div>Bakkenkamp 1</div>
-            <div>48480 Lünne</div>
-
-            <div>Philipp Wilmes</div>
-            <div>Lennard Wibbeling</div>
-          </div>
-          <div>
-            <div>TEL. 017660400853</div>
-          </div>
-        </div>
 
         <Flex align='center' direction='row' gap='xs' className={classes.links}>
           {items}
         </Flex>
+        <div className={classes.contactInfo}>
+          <div>W&W Fahrzeugteile GbR</div>
+          <div>Bakkenkamp 1</div>
+          <div>48480 Lünne</div>
+        </div>
       </div>
     </div>
   );
