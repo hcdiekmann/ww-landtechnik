@@ -179,8 +179,14 @@ export function GalleryGridComponent() {
       <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
         {cards}
       </SimpleGrid>
-      <Modal opened={modalOpened} onClose={() => setModalOpened(false)}>
-        <PictureCarousel pictures={currentImages} />
+      <Modal
+        opened={modalOpened}
+        size='lg'
+        onClose={() => setModalOpened(false)}
+      >
+        <Container>
+          <PictureCarousel pictures={currentImages} />
+        </Container>
       </Modal>
     </Container>
   );
