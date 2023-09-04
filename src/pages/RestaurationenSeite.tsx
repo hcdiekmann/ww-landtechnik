@@ -1,5 +1,6 @@
 import { Container, Title, Text, Divider } from '@mantine/core';
 import { AppShellComponent } from '../Appshell/AppShellComponent';
+import { GalleryGridComponent } from '../GalleryGrid/GalleryGridComponent';
 
 export const RestaurationenSeite = (): JSX.Element => {
   return (
@@ -23,6 +24,7 @@ export const RestaurationenSeite = (): JSX.Element => {
           wieder montiert. Somit erreichen wir eine sehr gute Qualität der
           Restauration und können Glückliche Kunden garantieren.
         </Text>
+        <GalleryGridComponent />
       </Container>
     </AppShellComponent>
   );

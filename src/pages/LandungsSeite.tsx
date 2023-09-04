@@ -63,13 +63,13 @@ export const LandungsSeite = (): JSX.Element => {
           </Text>
           <CarouselComponent />
 
-          <Title mt={15} className={classes.title} order={2}>
+          <Title mt={20} className={classes.title} order={2}>
             Warum W&W Landtechnik?
           </Title>
           <List mt={15} spacing='lg' size='sm' center className={classes.list}>
             <List.Item
               icon={
-                <ThemeIcon color='white' size={30}>
+                <ThemeIcon color='white' size={34}>
                   <IconTool size='1.5rem' color='darkgreen' />
                 </ThemeIcon>
               }
@@ -81,7 +81,7 @@ export const LandungsSeite = (): JSX.Element => {
             </List.Item>
             <List.Item
               icon={
-                <ThemeIcon color='white' size={30}>
+                <ThemeIcon color='white' size={34}>
                   <IconHeart size='1.5rem' color='darkgreen' />
                 </ThemeIcon>
               }
@@ -93,19 +93,19 @@ export const LandungsSeite = (): JSX.Element => {
             </List.Item>
             <List.Item
               icon={
-                <ThemeIcon color='white' size={30}>
+                <ThemeIcon color='white' size={34}>
                   <IconBoxSeam size='1.5rem' color='darkgreen' />
                 </ThemeIcon>
               }
             >
               Alles aus einer Hand
               <Text className={classes.list_subtext}>
-                Reparatur, Ersatzteile und Handel
+                Restauration,Reparatur, Ersatzteile und Handel
               </Text>
             </List.Item>
             <List.Item
               icon={
-                <ThemeIcon color='white' size={30}>
+                <ThemeIcon color='white' size={34}>
                   <IconStar size='1.5rem' color='darkgreen' />
                 </ThemeIcon>
               }
