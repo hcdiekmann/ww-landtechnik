@@ -7,9 +7,9 @@ import {
   Container,
   AspectRatio,
   Modal,
-  Paper,
 } from '@mantine/core';
 import { useState } from 'react';
+import { PictureCarousel } from './PictureCarousel';
 
 const data = [
   {
@@ -34,12 +34,29 @@ const data = [
   },
   {
     title: 'Restauration MB-trac 1500',
-    image: '/pictures/1500Final/1.jpg',
+    image: '/pictures/1500Final/2.jpg',
     date: 'MB-trac 1500',
     galleryImages: [
-      '/pictures/900Restauration/1.jpg',
-      '/pictures/900Restauration/2.jpg',
-      '/pictures/900Restauration/3.jpg',
+      '/pictures/1500Final/2.jpg',
+      '/pictures/1500Final/1.jpg',
+      '/pictures/1500Final/3.jpg',
+      '/pictures/1500Final/4.jpg',
+      '/pictures/1500Final/5.jpg',
+      '/pictures/1500Final/6.jpg',
+      '/pictures/1500Final/7.jpg',
+      '/pictures/1500Final/8.jpg',
+      '/pictures/1500Final/9.jpg',
+      '/pictures/1500Final/10.jpg',
+      '/pictures/1500Final/11.jpg',
+      '/pictures/1500Final/12.jpg',
+      '/pictures/1500Final/13.jpg',
+      '/pictures/1500Final/14.jpg',
+      '/pictures/1500Final/15.jpg',
+      '/pictures/1500Final/16.jpg',
+      '/pictures/1500Final/17.jpg',
+      '/pictures/1500Final/18.jpg',
+      '/pictures/1500Final/19.jpg',
+      '/pictures/1500Final/20.jpg',
     ],
   },
   {
@@ -108,11 +125,9 @@ export function GalleryGridComponent() {
       <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
         {cards}
       </SimpleGrid>
-      <Modal
-        opened={modalOpened}
-        onClose={() => setModalOpened(false)}
-        title='Image Gallery'
-      ></Modal>
+      <Modal opened={modalOpened} onClose={() => setModalOpened(false)}>
+        <PictureCarousel pictures={currentImages} />
+      </Modal>
     </Container>
   );
 }
