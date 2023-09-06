@@ -27,7 +27,21 @@ export default function App() {
   return (
     <MantineProvider
       theme={{
-        primaryColor: 'lime',
+        primaryColor: 'MBtrac',
+        colors: {
+          MBtrac: [
+            '#f8fde5',
+            '#f2f7d4',
+            '#e4eeab',
+            '#d5e57e',
+            '#c8dd59',
+            '#bfd841',
+            '#bbd632',
+            '#a5bd24',
+            '#91a81a',
+            '#7c9108',
+          ],
+        },
         headings: {
           fontFamily: '"Open Sans", bold;',
 

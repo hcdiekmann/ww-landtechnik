@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import {
@@ -10,8 +8,10 @@ import {
   Button,
   useMantineTheme,
   rem,
+  ThemeIcon,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -133,36 +133,36 @@ function Card({ image, title, category }: CardProps) {
   };
 
   return (
-    <Paper shadow='md' p='xl' radius='md' className={classes.card}>
-      <div
-        className={classes.imageContainer}
-        style={{ backgroundImage: `url(${image})` }}
-      >
-        <div className={classes.overlay}></div>
-      </div>
-      <div className={classes.buttonContainer}>
-        <div className={classes.content}>
-          <Text className={classes.category} size='xs'>
-            {category}
-          </Text>
-          <Title order={3} className={classes.title}>
-            {title}
-          </Title>
+    <Link to={getPageLink()} style={{ textDecoration: 'none' }}>
+      <Paper shadow='md' p='xl' radius='md' className={classes.card}>
+        <div
+          className={classes.imageContainer}
+          style={{ backgroundImage: `url(${image})` }}
+        >
+          <div className={classes.overlay}></div>
         </div>
-        <Link to={getPageLink()} className={classes.button}>
-          <Button variant='white' color='dark'>
+        <div className={classes.buttonContainer}>
+          <div className={classes.content}>
+            <Text className={classes.category} size='xs'>
+              {category}
+            </Text>
+            <Title order={3} className={classes.title}>
+              {title}
+            </Title>
+          </div>
+
+          {/* <Button variant='white' color='dark' className={classes.button}>
             Erkunden
-          </Button>
-        </Link>
-      </div>
-    </Paper>
+          </Button> */}
+        </div>
+      </Paper>
+    </Link>
   );
 }
 
 export const CarouselComponent = (): JSX.Element => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const autoplay = useRef(Autoplay({ delay: 8000 }));
 
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
@@ -178,10 +178,10 @@ export const CarouselComponent = (): JSX.Element => {
       align='start'
       loop
       withIndicators
+      controlSize={32}
+      nextControlIcon={<IconArrowRight size={24} color='darkgreen' />}
+      previousControlIcon={<IconArrowLeft size={24} color='darkgreen' />}
       slidesToScroll={mobile ? 1 : 2}
-      // plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={autoplay.current.reset}
     >
       {slides}
     </Carousel>

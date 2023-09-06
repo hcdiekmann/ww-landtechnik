@@ -29,8 +29,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   contactInfo: {
+    marginTop: theme.spacing.xs,
     fontSize: theme.fontSizes.sm,
-    lineHeight: 1.5,
+    lineHeight: 1.2,
+  },
+
+  copyright: {
+    color: theme.colors.gray[6],
+    fontSize: theme.fontSizes.xs,
   },
 }));
 
@@ -51,19 +57,24 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <Flex align='center' mb={5}>
+        <Flex direction='column' align='center'>
           <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
             <img src={Logo} alt={'Loading'} height={32} width={150} />
           </Link>
+          <div className={classes.contactInfo}>
+            W&W Fahrzeugteile GbR
+            <br />
+            Bakkenkamp 1
+            <br />
+            48480 Lünne
+          </div>
         </Flex>
 
         <Flex align='center' direction='row' gap='xs' className={classes.links}>
           {items}
         </Flex>
-        <div className={classes.contactInfo}>
-          <div>W&W Fahrzeugteile GbR</div>
-          <div>Bakkenkamp 1</div>
-          <div>48480 Lünne</div>
+        <div className={classes.copyright}>
+          © {new Date().getFullYear()} W&W Fahrzeugteile GbR
         </div>
       </div>
     </div>
