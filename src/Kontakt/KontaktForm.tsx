@@ -1,13 +1,5 @@
 import { useForm, isEmail, hasLength } from '@mantine/form';
-import {
-  Button,
-  Group,
-  TextInput,
-  Box,
-  Card,
-  Title,
-  Textarea,
-} from '@mantine/core';
+import { Button, Group, TextInput, Box, Textarea } from '@mantine/core';
 import { useState } from 'react';
 import { notifications } from '@mantine/notifications';
 import { IconCheck, IconX } from '@tabler/icons-react';
@@ -75,48 +67,43 @@ export const KontaktForm = (): JSX.Element => {
   };
 
   return (
-    <Card shadow='md' radius='md'>
-      <Title order={2} align='center'>
-        Kontakt
-      </Title>
-      <Box
-        component='form'
-        maw={400}
-        mx='auto'
-        onSubmit={form.onSubmit(() => {
-          handleSubmit(form.values);
-        })}
-      >
-        <TextInput
-          label='Name'
-          placeholder='Ihr Name'
-          {...form.getInputProps('name')}
-        />
-        <TextInput
-          label='Email'
-          placeholder='Ihre Email-Adresse'
-          mt='sm'
-          {...form.getInputProps('email')}
-        />
-        <TextInput
-          label='Betreff'
-          placeholder='Betreff'
-          mt='sm'
-          {...form.getInputProps('subject')}
-        />
-        <Textarea
-          label='Nachricht'
-          placeholder='Ihre Nachricht'
-          mt='xs'
-          {...form.getInputProps('message')}
-        />
+    <Box
+      component='form'
+      maw={400}
+      mx='auto'
+      onSubmit={form.onSubmit(() => {
+        handleSubmit(form.values);
+      })}
+    >
+      <TextInput
+        label='Name'
+        placeholder='Ihr Name'
+        {...form.getInputProps('name')}
+      />
+      <TextInput
+        label='Email'
+        placeholder='Ihre Email-Adresse'
+        mt='sm'
+        {...form.getInputProps('email')}
+      />
+      <TextInput
+        label='Betreff'
+        placeholder='Betreff'
+        mt='sm'
+        {...form.getInputProps('subject')}
+      />
+      <Textarea
+        label='Nachricht'
+        placeholder='Ihre Nachricht'
+        mt='xs'
+        {...form.getInputProps('message')}
+      />
 
-        <Group position='right' mt='md'>
-          <Button loading={isLoading} type='submit'>
-            Senden
-          </Button>
-        </Group>
-      </Box>
-    </Card>
+      <Group position='right' mt='md'>
+        <Button loading={isLoading} type='submit'>
+          Senden
+        </Button>
+      </Group>
+    </Box>
   );
 };

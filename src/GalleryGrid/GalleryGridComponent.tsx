@@ -39,31 +39,31 @@ const data = [
   },
   {
     title: 'Restauration MB-trac 700',
-    image: '/pictures/700Restauration/2.jpg',
+    image: '/pictures/700/2.webp',
     date: 'MB-trac 700',
     galleryImages: [
-      '/pictures/700Restauration/2.jpg',
-      '/pictures/700Restauration/3.jpg',
-      '/pictures/700Restauration/4.jpg',
-      '/pictures/700Restauration/5.jpg',
-      '/pictures/700Restauration/6.jpg',
-      '/pictures/700Restauration/7.jpg',
-      '/pictures/700Restauration/8.jpg',
-      '/pictures/700Restauration/9.jpg',
-      '/pictures/700Restauration/10.jpg',
-      '/pictures/700Restauration/11.jpg',
-      '/pictures/700Restauration/12.jpg',
-      '/pictures/700Restauration/13.jpg',
-      '/pictures/700Restauration/14.jpg',
-      '/pictures/700Restauration/15.jpg',
-      '/pictures/700Restauration/16.jpg',
-      '/pictures/700Restauration/17.jpg',
-      '/pictures/700Restauration/18.jpg',
-      '/pictures/700Restauration/19.jpg',
-      '/pictures/700Restauration/20.jpg',
-      '/pictures/700Restauration/21.jpg',
-      '/pictures/700Restauration/22.jpg',
-      '/pictures/700Restauration/23.jpg',
+      '/pictures/700/2.webp',
+      '/pictures/700/3.webp',
+      '/pictures/700/4.webp',
+      '/pictures/700/5.webp',
+      '/pictures/700/6.webp',
+      '/pictures/700/7.webp',
+      '/pictures/700/8.webp',
+      '/pictures/700/9.webp',
+      '/pictures/700/10.webp',
+      '/pictures/700/11.webp',
+      '/pictures/700/12.webp',
+      '/pictures/700/13.webp',
+      '/pictures/700/14.webp',
+      '/pictures/700/15.webp',
+      '/pictures/700/16.webp',
+      '/pictures/700/17.webp',
+      '/pictures/700/18.webp',
+      '/pictures/700/19.webp',
+      '/pictures/700/20.webp',
+      '/pictures/700/21.webp',
+      '/pictures/700/22.webp',
+      '/pictures/700/23.webp',
     ],
   },
   {
@@ -144,11 +144,13 @@ const useStyles = createStyles((theme) => ({
 export function GalleryGridComponent() {
   const [modalOpened, setModalOpened] = useState(false);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const [currentTitle, setCurrentTitle] = useState<string>('');
 
   const { classes } = useStyles();
 
-  const handleCardClick = (galleryImages: string[]) => {
+  const handleCardClick = (galleryImages: string[], modalTitle: string) => {
     setCurrentImages(galleryImages);
+    setCurrentTitle(modalTitle);
     setModalOpened(true);
   };
 
@@ -158,9 +160,8 @@ export function GalleryGridComponent() {
       p='md'
       radius='md'
       component='a'
-      href='#'
       className={classes.card}
-      onClick={() => handleCardClick(gallery.galleryImages)}
+      onClick={() => handleCardClick(gallery.galleryImages, gallery.title)}
     >
       <AspectRatio ratio={1920 / 1080}>
         <Image src={gallery.image} />
@@ -175,18 +176,18 @@ export function GalleryGridComponent() {
   ));
 
   return (
-    <Container py='xl'>
+    <Container>
       <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
         {cards}
       </SimpleGrid>
+      <PictureCarousel pictures={currentImages} />
       <Modal
         opened={modalOpened}
-        size='lg'
+        size='xl'
+        title={currentTitle}
         onClose={() => setModalOpened(false)}
       >
-        <Container>
-          <PictureCarousel pictures={currentImages} />
-        </Container>
+        <PictureCarousel pictures={currentImages} />
       </Modal>
     </Container>
   );

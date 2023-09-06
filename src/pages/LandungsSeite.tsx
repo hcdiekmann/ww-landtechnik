@@ -19,7 +19,7 @@ import {
 const useStyles = createStyles((theme) => ({
   background_wrapper: {
     boxSizing: 'border-box',
-    backgroundImage: `linear-gradient(-90deg, ${
+    backgroundImage: `linear-gradient(-60deg, ${
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][8]} 100%)`,
   },
@@ -100,7 +100,7 @@ export const LandungsSeite = (): JSX.Element => {
             >
               Alles aus einer Hand
               <Text className={classes.list_subtext}>
-                Restauration,Reparatur, Ersatzteile und Handel
+                Restauration, Reparatur, Ersatzteile und Handel
               </Text>
             </List.Item>
             <List.Item

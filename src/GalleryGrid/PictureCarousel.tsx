@@ -1,31 +1,13 @@
-import { Carousel } from '@mantine/carousel';
-import { useState } from 'react';
-import { Image, createStyles, getStylesRef, rem } from '@mantine/core';
-
-const useStyles = createStyles(() => ({
-  controls: {
-    ref: getStylesRef('controls'),
-    transition: 'opacity 300ms ease',
-    opacity: 0,
-  },
-  indicator: {
-    width: rem(12),
-    height: rem(4),
-    transition: 'width 250ms ease',
-
-    '&[data-active]': {
-      width: rem(40),
-    },
-  },
-
-  root: {
-    '&:hover': {
-      [`& .${getStylesRef('controls')}`]: {
-        opacity: 1,
-      },
-    },
-  },
-}));
+import { Carousel, Embla } from '@mantine/carousel';
+import { useCallback, useEffect, useState } from 'react';
+import {
+  Image,
+  Progress,
+  createStyles,
+  getStylesRef,
+  rem,
+} from '@mantine/core';
+import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 
 interface PictureCarouselProps {
   pictures: string[];
@@ -34,34 +16,58 @@ interface PictureCarouselProps {
 export const PictureCarousel = ({
   pictures,
 }: PictureCarouselProps): JSX.Element => {
-  const { classes } = useStyles();
-  const [allLoaded, setAllLoaded] = useState(false);
-  let loadCount = 0;
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [embla, setEmbla] = useState<Embla | null>(null);
 
-  const handleImageLoad = () => {
-    loadCount += 1;
-    if (loadCount === pictures.length) {
-      setAllLoaded(true);
+  const handleScroll = useCallback(() => {
+    if (!embla) return;
+    const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
+    setScrollProgress(progress * 100);
+  }, [embla, setScrollProgress]);
+
+  useEffect(() => {
+    if (embla) {
+      embla.on('scroll', handleScroll);
+      handleScroll();
     }
-  };
+  }, [embla]);
 
   const slides = pictures.map((url) => (
     <Carousel.Slide key={url}>
-      <Image src={url} onLoad={handleImageLoad} />
+      <Image src={url} withPlaceholder fit='contain' height={500} />
     </Carousel.Slide>
   ));
 
   return (
-    <div style={{ opacity: allLoaded ? 1 : 0, transition: 'opacity 1s ease' }}>
+    <>
       <Carousel
-        mt={18}
-        maw='auto'
-        mah='auto'
-        withIndicators
-        classNames={classes}
+        mt={10}
+        getEmblaApi={setEmbla}
+        slideGap='sm'
+        dragFree
+        nextControlIcon={<IconArrowRight size={30} color='darkgreen' />}
+        previousControlIcon={<IconArrowLeft size={30} color='darkgreen' />}
+        styles={{
+          control: {
+            '&[data-inactive]': {
+              opacity: 0,
+              cursor: 'default',
+            },
+          },
+        }}
       >
         {slides}
       </Carousel>
-    </div>
+      <Progress
+        value={scrollProgress}
+        styles={{
+          bar: { transitionDuration: '0ms' },
+          root: { maxWidth: rem(320) },
+        }}
+        size='sm'
+        mt='xl'
+        mx='auto'
+      />
+    </>
   );
 };
