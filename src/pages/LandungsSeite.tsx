@@ -52,7 +52,7 @@ export const LandungsSeite = (): JSX.Element => {
             <Balancer>Ihr Partner für den MB trac und Unimog</Balancer>
           </Title>
 
-          <Text mb={8} className={classes.sub_text}>
+          <Text mb={10} className={classes.sub_text}>
             <Balancer>
               Seit Jahren widmen wir uns der originalgetreuen Restauration,
               Aufarbeitung und Reparatur von MB tracs und Unimogs. Unsere
@@ -63,7 +63,7 @@ export const LandungsSeite = (): JSX.Element => {
           </Text>
           <CarouselComponent />
 
-          <Title mt={20} className={classes.title} order={2}>
+          <Title mt={22} className={classes.title} order={2}>
             Warum W&W Landtechnik?
           </Title>
           <List mt={15} spacing='lg' size='sm' center className={classes.list}>
