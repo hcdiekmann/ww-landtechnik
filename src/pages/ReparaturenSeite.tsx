@@ -1,5 +1,6 @@
 import { Container, Title, Text, Divider, createStyles } from '@mantine/core';
 import { AppShellComponent } from '../Appshell/AppShellComponent';
+import { GalleryGridComponent } from '../GalleryGrid/GalleryGridComponent';
 
 const useStyles = createStyles((theme) => ({
   background_wrapper: {
@@ -19,12 +20,12 @@ export const ReparaturenSeite = (): JSX.Element => {
   return (
     <div className={classes.background_wrapper}>
       <AppShellComponent>
-        <Container mt={50}>
+        <Container mt={30}>
           <Title mb={10} order={2} className={classes.text}>
             Reparaturen und Aufarbeitungen
           </Title>
           <Divider mb={10} />
-          <Text className={classes.text}>
+          <Text className={classes.text} mb={15}>
             Um Schäden und Probleme möglichst zu verhindern ist die Pflege und
             Wartung Ihrer Maschine unentbehrlich. Dafür bieten wir Ihnen
             Aufarbeitungen oder Wartungen Ihres MB trac oder Unimog an. Falls es
@@ -36,6 +37,7 @@ export const ReparaturenSeite = (): JSX.Element => {
             beseitigt werden. Nennen Sie uns Ihre Wünsche – Ihre Zufriedenheit
             steht bei uns an erster Stelle.
           </Text>
+          <GalleryGridComponent />
         </Container>
       </AppShellComponent>
     </div>

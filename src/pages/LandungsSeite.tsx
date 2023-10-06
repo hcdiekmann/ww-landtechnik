@@ -47,7 +47,7 @@ export const LandungsSeite = (): JSX.Element => {
   return (
     <div className={classes.background_wrapper}>
       <AppShellComponent>
-        <Container mt={50}>
+        <Container mt={40}>
           <Title mb={10} order={1} className={classes.title}>
             <Balancer>Ihr Partner für den MB trac und Unimog</Balancer>
           </Title>

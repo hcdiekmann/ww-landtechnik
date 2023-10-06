@@ -97,7 +97,7 @@ const data = [
     category: 'Reparaturen & Aufarbeitungen',
   },
   {
-    image: '/pictures/700Restauration/1.jpg',
+    image: '/pictures/700/1.webp',
     title: 'Wenn das passende erstmal hermuss',
     category: 'Restaurationen',
   },

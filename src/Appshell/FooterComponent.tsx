@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: rem(10),
+    marginTop: rem(30),
     borderTop: `${rem(1)} solid ${theme.colors.gray[2]}`,
     backgroundColor: 'rgb(255, 255, 255)',
   },
@@ -62,8 +62,6 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
             <img src={Logo} alt={'Loading'} height={32} width={150} />
           </Link>
           <div className={classes.contactInfo}>
-            W&W Fahrzeugteile GbR
-            <br />
             Bakkenkamp 1
             <br />
             48480 Lünne

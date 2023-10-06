@@ -1,5 +1,6 @@
 import { Container, Title, Text, Divider, createStyles } from '@mantine/core';
 import { AppShellComponent } from '../Appshell/AppShellComponent';
+import { GalleryGridComponent } from '../GalleryGrid/GalleryGridComponent';
 
 const useStyles = createStyles((theme) => ({
   background_wrapper: {
@@ -19,12 +20,12 @@ export const ErsatzteileSeite = (): JSX.Element => {
   return (
     <div className={classes.background_wrapper}>
       <AppShellComponent>
-        <Container mt={50}>
+        <Container mt={30}>
           <Title mb={10} order={2} className={classes.text}>
             Beschaffung und Herstellung von Ersatzteilen
           </Title>
           <Divider mb={10} />
-          <Text className={classes.text}>
+          <Text className={classes.text} mb={15}>
             Da wir auch immer auf Ersatz und Reparaturteile angewiesen sind
             bemühen wir und stetig die nichtmehr lieferbare Teile nachzubauen
             oder aufzuarbeiten um unsere Lieblinge ohne Stillstand fahren zu
@@ -34,6 +35,7 @@ export const ErsatzteileSeite = (): JSX.Element => {
             wir Sie mit unseren Ersatzteilen und stehen auch bei Fragen immer
             zur Verfügung.
           </Text>
+          <GalleryGridComponent />
         </Container>
       </AppShellComponent>
     </div>

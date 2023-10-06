@@ -22,12 +22,12 @@ export const RestaurationenSeite = (): JSX.Element => {
   return (
     <div className={classes.background_wrapper}>
       <AppShellComponent>
-        <Container mt={50}>
+        <Container mt={30}>
           <Title mb={10} order={2} className={classes.text}>
             Restaurationen
           </Title>
           <Divider mb={10} />
-          <Text className={classes.text} mb={10}>
+          <Text className={classes.text} mb={15}>
             Wir lieben es, Alte in die Jahre gekommene Fahrzeuge wieder im neuen
             Glanz erstrahlen zu lassen. Hier bekommen Sie beispielsweise
             Einblicke in vollständige Restaurationen unserer Maschinen. Dabei
@@ -41,7 +41,7 @@ export const RestaurationenSeite = (): JSX.Element => {
             wieder montiert. Somit erreichen wir eine sehr gute Qualität der
             Restauration und können Glückliche Kunden garantieren.
           </Text>
-          {/* <GalleryGridComponent /> */}
+          <GalleryGridComponent />
         </Container>
       </AppShellComponent>
     </div>
