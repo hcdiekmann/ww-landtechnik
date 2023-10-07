@@ -62,8 +62,6 @@ export function FooterCentered({ Logo, links }: FooterCenteredProps) {
             <img src={Logo} alt={'Loading'} height={32} width={150} />
           </Link>
           <div className={classes.contactInfo}>
-            W&W Fahrzeugteile GbR
-            <br />
             Bakkenkamp 1
             <br />
             48480 Lünne

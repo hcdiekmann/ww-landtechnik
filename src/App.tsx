@@ -12,6 +12,8 @@ import { UnternehemenSeite } from './pages/UnternehmenSeite';
 import { RestaurationenSeite } from './pages/RestaurationenSeite';
 import { ReparaturenSeite } from './pages/ReparaturenSeite';
 import { ErsatzteileSeite } from './pages/ErsatzteileSeite';
+import { DatenschutzSeite } from './pages/DatenschutzSeite';
+import { ImpressumSeite } from './pages/ImpressumSeite';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +68,8 @@ export default function App() {
           <Route path='/reparaturen' element={<ReparaturenSeite />} />
           <Route path='/ersatzteile' element={<ErsatzteileSeite />} />
           <Route path='/kontakt' element={<KontaktSeite />} />
+          <Route path='/datenschutz' element={<DatenschutzSeite />} />
+          <Route path='/impressum' element={<ImpressumSeite />} />
         </Routes>
       </Router>
     </MantineProvider>
