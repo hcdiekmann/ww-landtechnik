@@ -41,7 +41,7 @@ export const RestaurationenSeite = (): JSX.Element => {
             wieder montiert. Somit erreichen wir eine sehr gute Qualität der
             Restauration und können Glückliche Kunden garantieren.
           </Text>
-          {/* <GalleryGridComponent /> */}
+          <GalleryGridComponent />
         </Container>
       </AppShellComponent>
     </div>

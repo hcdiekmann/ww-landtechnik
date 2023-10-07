@@ -6,16 +6,17 @@ import {
   Text,
   Container,
   AspectRatio,
-  Modal,
+  Button,
 } from '@mantine/core';
 import { useState } from 'react';
 import { PictureCarousel } from './PictureCarousel';
+import { IconSquareChevronLeftFilled } from '@tabler/icons-react';
 
 const data = [
   {
     title: 'Restauration MB-trac 900',
     image: '/pictures/900Restauration/1.jpg',
-    date: 'MB-trac 900',
+    category: 'MB-trac 900',
     galleryImages: [
       '/pictures/900Restauration/1.jpg',
       '/pictures/900Restauration/2.jpg',
@@ -40,7 +41,7 @@ const data = [
   {
     title: 'Restauration MB-trac 700',
     image: '/pictures/700/2.webp',
-    date: 'MB-trac 700',
+    category: 'MB-trac 700',
     galleryImages: [
       '/pictures/700/2.webp',
       '/pictures/700/3.webp',
@@ -69,7 +70,7 @@ const data = [
   {
     title: 'Restauration MB-trac 1500',
     image: '/pictures/1500Final/2.jpg',
-    date: 'MB-trac 1500',
+    category: 'MB-trac 1500',
     galleryImages: [
       '/pictures/1500Final/2.jpg',
       '/pictures/1500Final/1.jpg',
@@ -97,7 +98,7 @@ const data = [
   {
     title: 'Kabinenrestauration MB-trac',
     image: '/pictures/KabinenRestauration/2.jpg',
-    date: 'Kabinenrestauration',
+    category: 'Kabinenrestauration',
     galleryImages: [
       '/pictures/KabinenRestauration/2.jpg',
       '/pictures/KabinenRestauration/3.jpg',
@@ -142,7 +143,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function GalleryGridComponent() {
-  const [modalOpened, setModalOpened] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
   const [currentTitle, setCurrentTitle] = useState<string>('');
 
@@ -151,7 +152,7 @@ export function GalleryGridComponent() {
   const handleCardClick = (galleryImages: string[], modalTitle: string) => {
     setCurrentImages(galleryImages);
     setCurrentTitle(modalTitle);
-    setModalOpened(true);
+    setShowCarousel(true);
   };
 
   const cards = data.map((gallery) => (
@@ -167,7 +168,7 @@ export function GalleryGridComponent() {
         <Image src={gallery.image} />
       </AspectRatio>
       <Text color='dimmed' size='xs' transform='uppercase' weight={700} mt='md'>
-        {gallery.date}
+        {gallery.category}
       </Text>
       <Text className={classes.title} mt={5}>
         {gallery.title}
@@ -177,18 +178,26 @@ export function GalleryGridComponent() {
 
   return (
     <Container>
-      <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-        {cards}
-      </SimpleGrid>
-      <PictureCarousel pictures={currentImages} />
-      <Modal
-        opened={modalOpened}
-        size='xl'
-        title={currentTitle}
-        onClose={() => setModalOpened(false)}
-      >
-        <PictureCarousel pictures={currentImages} />
-      </Modal>
+      {showCarousel ? (
+        <div>
+          <Button
+            leftIcon={
+              <IconSquareChevronLeftFilled></IconSquareChevronLeftFilled>
+            }
+            onClick={() => setShowCarousel(false)}
+          >
+            Alben
+          </Button>
+          <Text align='center' size='xl' color='white'>
+            {currentTitle}
+          </Text>
+          <PictureCarousel pictures={currentImages} />
+        </div>
+      ) : (
+        <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+          {cards}
+        </SimpleGrid>
+      )}
     </Container>
   );
 }
